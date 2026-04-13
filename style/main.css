@@ -1,0 +1,876 @@
+/* ===================== RESET & BASE ===================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+/* ===================== SCREEN SYSTEM ===================== */
+.screen {
+  display: none;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* ===================== TYPOGRAPHY ===================== */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}
+
+/* ===================== CONTROLS ===================== */
+input[type="text"],
+input[type="number"] {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #2a2a3e;
+  color: #e0e0e0;
+  margin-right: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background: #c0392b;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background: #a93226;
+}
+
+button:disabled {
+  background: #444;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* ===================== OVERVIEW SCREEN ===================== */
+#overview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+#overview-header h2 {
+  margin: 0;
+}
+
+#btn-close-overview {
+  background: #555;
+}
+
+#btn-close-overview:hover {
+  background: #444;
+}
+
+#overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.overview-card {
+  background: #2a2a3e;
+  border: 1px solid #3a3a5e;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.overview-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #1a1a2e;
+}
+
+.overview-card-name {
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.overview-stats {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.overview-stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.overview-stat-label {
+  color: #aaa;
+  text-transform: capitalize;
+}
+
+.overview-stat-value {
+  color: #4a90d9;
+  font-weight: bold;
+}
+
+/* ===================== LOBBY SCREEN ===================== */
+#lobby-screen h1 {
+  text-align: center;
+}
+
+#lobby-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+#lobby-player-count {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+#player-list {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.player-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #2a2a3e;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+}
+
+.player-entry-number {
+  color: #888;
+  width: 1.5rem;
+  flex-shrink: 0;
+}
+
+.player-entry-name {
+  flex: 1;
+  font-weight: bold;
+}
+
+.player-entry-money {
+  color: #7ec87e;
+  font-size: 0.9rem;
+}
+
+.btn-remove-player {
+  background: #c0392b;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.btn-remove-player:hover {
+  background: #a93226;
+}
+
+#lobby-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+#lobby-status {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+#btn-start-game {
+  margin-top: 0.75rem;
+  background: #27ae60;
+}
+
+#btn-start-game:hover:not(:disabled) {
+  background: #1e8449;
+}
+
+/* ===================== GAME SCREEN ===================== */
+#round-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+#round-header h2 {
+  margin: 0;
+}
+
+#category-badge {
+  background: #2a2a3e;
+  border: 1px solid #4a90d9;
+  border-radius: 20px;
+  padding: 0.3rem 1rem;
+  font-size: 0.95rem;
+  color: #aad4f5;
+}
+
+#category-badge span {
+  font-weight: bold;
+  color: #4a90d9;
+}
+
+#players-overview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+#roster-heading {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #aaa;
+}
+
+#character-roster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.character-card {
+  background: #2a2a3e;
+  border: 1px solid #3a3a5e;
+  border-radius: 8px;
+  padding: 0.75rem;
+  width: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.character-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #1a1a2e;
+}
+
+.character-name {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.character-stat {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.character-stat.highlight {
+  color: #4a90d9;
+  font-weight: bold;
+}
+
+/* ===================== AUCTION SCREEN ===================== */
+#auction-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+#auction-progress {
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+.category-pill {
+  background: #2a2a3e;
+  border: 1px solid #4a90d9;
+  border-radius: 20px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #4a90d9;
+}
+
+#auction-character-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.auction-char-img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #2a2a3e;
+  border: 2px solid #3a3a5e;
+}
+
+#auction-char-name {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+#auction-char-stat {
+  font-size: 1.1rem;
+  color: #4a90d9;
+  font-weight: bold;
+}
+
+#bid-status {
+  background: #2a2a3e;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bid-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bid-label {
+  color: #aaa;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.bid-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #7ec87e;
+}
+
+#bidder-panel {
+  margin-bottom: 1.5rem;
+}
+
+.panel-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #aaa;
+  margin-bottom: 0.6rem;
+}
+
+#bidder-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.bidder-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  min-width: 110px;
+  background: #2a2a3e;
+  border: 2px solid #3a3a5e;
+  border-radius: 8px;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  margin: 0;
+}
+
+.bidder-btn:hover:not(:disabled) {
+  background: #33335a;
+  border-color: #4a90d9;
+}
+
+.bidder-btn.selected {
+  border-color: #f0c040;
+  background: #3a3520;
+}
+
+.bidder-btn.leading {
+  border-color: #7ec87e;
+}
+
+.bidder-btn.won {
+  border-color: #555;
+  opacity: 0.5;
+}
+
+.bidder-btn:disabled {
+  background: #222;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.bidder-name {
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.bidder-money {
+  font-size: 0.78rem;
+  color: #7ec87e;
+  margin-top: 0.15rem;
+}
+
+.bidder-status {
+  font-size: 0.72rem;
+  margin-top: 0.2rem;
+  color: #aaa;
+}
+
+.bidder-btn.leading .bidder-status { color: #7ec87e; }
+.bidder-btn.won     .bidder-status { color: #888; }
+
+#bid-input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+#bidding-as {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+#bid-input-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#bid-input-row input {
+  flex: 1;
+  margin: 0;
+}
+
+#btn-end-auction {
+  background: #7f5af0;
+  margin: 0;
+  align-self: flex-start;
+}
+
+#btn-end-auction:hover {
+  background: #6b46e0;
+}
+
+/* ===================== REVEAL SCREEN ===================== */
+#reveal-category-badge {
+  display: inline-block;
+  background: #2a2a3e;
+  border: 1px solid #4a90d9;
+  border-radius: 20px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.9rem;
+  color: #aad4f5;
+  margin-bottom: 1.5rem;
+}
+
+#reveal-category-badge span {
+  font-weight: bold;
+  color: #4a90d9;
+}
+
+#round-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.result-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #2a2a3e;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.result-char-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #1a1a2e;
+  flex-shrink: 0;
+}
+
+.result-char-name {
+  flex: 1;
+  font-weight: bold;
+}
+
+.result-arrow {
+  color: #555;
+}
+
+.result-winner {
+  color: #7ec87e;
+  font-weight: bold;
+  text-align: right;
+}
+
+.result-winner.no-sale {
+  color: #888;
+  font-style: italic;
+}
+
+.reveal-section-heading {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #aaa;
+  margin: 1.5rem 0 0.6rem;
+}
+
+/* --- Round scoring table --- */
+#round-scoring {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.score-row {
+  display: grid;
+  grid-template-columns: 3rem 1fr 1fr 5rem 4.5rem;
+  align-items: center;
+  gap: 0.75rem;
+  background: #2a2a3e;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+}
+
+.score-rank {
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+.score-player {
+  font-weight: bold;
+}
+
+.score-character {
+  color: #ccc;
+}
+
+.score-stat {
+  color: #4a90d9;
+  font-weight: bold;
+  text-align: right;
+}
+
+.score-points {
+  color: #f0c040;
+  font-weight: bold;
+  text-align: right;
+}
+
+.no-scores {
+  color: #888;
+  font-style: italic;
+  padding: 0.5rem 0;
+}
+
+/* --- Leaderboard --- */
+#round-leaderboard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: 3rem 1fr 5rem 7rem;
+  align-items: center;
+  gap: 0.75rem;
+  background: #2a2a3e;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+}
+
+.leaderboard-row:first-child {
+  border: 1px solid #f0c040;
+}
+
+.lb-rank {
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+.lb-name {
+  font-weight: bold;
+}
+
+.lb-score {
+  color: #f0c040;
+  font-weight: bold;
+  text-align: right;
+}
+
+.lb-money {
+  color: #7ec87e;
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+/* ===================== SCOREBOARD ===================== */
+#score-list {
+  margin: 1rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ===================== PODIUM ===================== */
+#podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin: 1.5rem auto 2rem;
+  height: 220px;
+}
+
+.podium-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 130px;
+}
+
+.podium-player-name {
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 0.4rem;
+  word-break: break-word;
+}
+
+.podium-player-score {
+  font-size: 0.78rem;
+  color: #ccc;
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+.podium-block {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+}
+
+.podium-slot.first  .podium-block { height: 120px; background: #c9a000; color: #fff; }
+.podium-slot.second .podium-block { height: 85px;  background: #8a8a8a; color: #fff; }
+.podium-slot.third  .podium-block { height: 60px;  background: #a0522d; color: #fff; }
+
+.podium-slot.first  .podium-player-name { color: #f0c040; font-size: 1.05rem; }
+.podium-slot.second .podium-player-name { color: #d0d0d0; }
+.podium-slot.third  .podium-player-name { color: #cd7f32; }
+
+/* ===================== ENDGAME SCREEN ===================== */
+#endgame-screen {
+  text-align: center;
+}
+
+#endgame-header {
+  margin-bottom: 2rem;
+}
+
+#endgame-subtitle {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #aaa;
+  margin-bottom: 0.25rem;
+}
+
+#endgame-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+#endgame-winner-banner {
+  background: linear-gradient(135deg, #2a2000, #3a3000);
+  border: 2px solid #f0c040;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 0 auto 2rem;
+  max-width: 420px;
+}
+
+.winner-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #c8a020;
+  margin-bottom: 0.4rem;
+}
+
+#endgame-winner-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f0c040;
+  margin-bottom: 0.25rem;
+}
+
+#endgame-winner-score {
+  font-size: 1.1rem;
+  color: #d4a830;
+}
+
+.endgame-section-heading {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #aaa;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+#endgame-rankings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.endgame-rank-row {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr 5rem 8rem;
+  align-items: center;
+  gap: 0.75rem;
+  background: #2a2a3e;
+  border: 1px solid #3a3a5e;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+}
+
+.endgame-rank-row.first-place {
+  background: linear-gradient(135deg, #2a2000, #3a3000);
+  border-color: #f0c040;
+}
+
+.er-place {
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+.endgame-rank-row.first-place .er-place {
+  color: #f0c040;
+  font-weight: bold;
+}
+
+.er-name {
+  font-weight: bold;
+}
+
+.endgame-rank-row.first-place .er-name {
+  color: #f0c040;
+}
+
+.er-score {
+  font-weight: bold;
+  color: #f0c040;
+  text-align: right;
+}
+
+.er-money {
+  color: #7ec87e;
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+#endgame-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#btn-play-again {
+  background: #27ae60;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+}
+
+#btn-play-again:hover {
+  background: #1e8449;
+}
+
+#btn-endgame-new-game {
+  background: #555;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+}
+
+#btn-endgame-new-game:hover {
+  background: #444;
+}

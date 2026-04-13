@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auctionator</title>
+  <link rel="stylesheet" href="style/main.css" />
+</head>
+<body>
+
+  <!-- ===================== LOBBY SCREEN ===================== -->
+  <section id="lobby-screen" class="screen active">
+    <h1>Auctionator</h1>
+    <p>Add at least 2 players, then start the game.</p>
+
+    <div id="lobby-header">
+      <span id="lobby-player-count">0 / 6 players</span>
+    </div>
+
+    <div id="player-list">
+      <!-- Player entries injected by JS -->
+    </div>
+
+    <div id="lobby-controls">
+      <input type="text" id="player-name-input" placeholder="Enter player name" maxlength="24" />
+      <button id="btn-add-player">Add Player</button>
+    </div>
+
+    <p id="lobby-status">Need at least 4 players to start (4 more needed)</p>
+    <button id="btn-start-game" disabled>Start Game</button>
+    <button id="btn-open-overview">Character Overview</button>
+  </section>
+
+  <!-- ===================== OVERVIEW SCREEN ===================== -->
+  <section id="overview-screen" class="screen">
+    <div id="overview-header">
+      <h2>Character Overview</h2>
+      <button id="btn-close-overview">Back to Lobby</button>
+    </div>
+    <div id="overview-grid">
+      <!-- Injected by JS -->
+    </div>
+  </section>
+
+  <!-- ===================== GAME SCREEN ===================== -->
+  <section id="game-screen" class="screen">
+    <div id="round-header">
+      <h2>Round <span id="round-number">1 / 10</span></h2>
+      <div id="category-badge">
+        Category: <span id="round-category">—</span>
+      </div>
+    </div>
+
+    <div id="players-overview">
+      <!-- Player cards injected by JS -->
+    </div>
+
+    <div id="game-controls">
+      <button id="btn-start-auction">Start Auction</button>
+    </div>
+  </section>
+
+  <!-- ===================== AUCTION SCREEN ===================== -->
+  <section id="auction-screen" class="screen">
+
+    <div id="auction-header">
+      <span id="auction-progress">Character 1 of 4</span>
+      <span id="auction-category-label" class="category-pill">—</span>
+    </div>
+
+    <div id="auction-character-display">
+      <img id="auction-char-img" src="" alt="" class="auction-char-img" />
+      <div id="auction-char-name">—</div>
+      <div id="auction-char-stat">—</div>
+    </div>
+
+    <div id="bid-status">
+      <div class="bid-status-row">
+        <span class="bid-label">Current Bid</span>
+        <span id="current-bid" class="bid-value">No bids yet</span>
+      </div>
+      <div class="bid-status-row">
+        <span class="bid-label">Highest Bidder</span>
+        <span id="highest-bidder" class="bid-value">—</span>
+      </div>
+    </div>
+
+    <div id="bidder-panel">
+      <p class="panel-label">Who is bidding?</p>
+      <div id="bidder-buttons">
+        <!-- Player buttons injected by JS -->
+      </div>
+    </div>
+
+    <div id="bid-input-area">
+      <span id="bidding-as">Select a player above to bid</span>
+      <div id="bid-input-row">
+        <input type="number" id="bid-input" placeholder="Enter bid amount" min="1" disabled />
+        <button id="btn-place-bid" disabled>Place Bid</button>
+      </div>
+      <button id="btn-end-auction">No Sale</button>
+    </div>
+
+  </section>
+
+  <!-- ===================== REVEAL SCREEN ===================== -->
+  <section id="reveal-screen" class="screen">
+    <h2>Round Results</h2>
+
+    <div id="reveal-category-badge">
+      Category: <span id="reveal-category">—</span>
+    </div>
+
+    <!-- 1. Who bought which character -->
+    <h3 class="reveal-section-heading">Auction Summary</h3>
+    <div id="round-results">
+      <!-- Injected by JS -->
+    </div>
+
+    <!-- 2. Points earned this round -->
+    <h3 class="reveal-section-heading">Points This Round</h3>
+    <div id="round-scoring">
+      <!-- Injected by JS -->
+    </div>
+
+    <!-- 3. Cumulative leaderboard -->
+    <h3 class="reveal-section-heading">Leaderboard</h3>
+    <div id="round-leaderboard">
+      <!-- Injected by JS -->
+    </div>
+
+    <div id="reveal-controls">
+      <button id="btn-next-round">Next Round</button>
+      <button id="btn-view-scores">View Scoreboard</button>
+    </div>
+  </section>
+
+  <!-- ===================== SCOREBOARD ===================== -->
+  <section id="scoreboard" class="screen">
+    <h2>Scoreboard</h2>
+
+    <div id="score-list">
+      <!-- Score entries injected by JS -->
+    </div>
+
+    <div id="scoreboard-controls">
+      <button id="btn-back-to-game">Back to Game</button>
+      <button id="btn-new-game">New Game</button>
+    </div>
+  </section>
+
+  <!-- ===================== ENDGAME SCREEN ===================== -->
+  <section id="endgame-screen" class="screen">
+
+    <div id="endgame-header">
+      <p id="endgame-subtitle">After 10 rounds</p>
+      <h1 id="endgame-title">Game Over</h1>
+    </div>
+
+    <div id="podium">
+      <!-- Injected by JS -->
+    </div>
+
+    <h3 class="endgame-section-heading">Final Rankings</h3>
+    <div id="endgame-rankings">
+      <!-- Injected by JS -->
+    </div>
+
+    <div id="endgame-controls">
+      <button id="btn-play-again">Play Again</button>
+      <button id="btn-endgame-new-game">New Game</button>
+    </div>
+
+  </section>
+
+  <script src="scripts/players.js"></script>
+  <script src="scripts/rounds.js"></script>
+  <script src="scripts/characters.js"></script>
+  <script src="scripts/auction.js"></script>
+  <script src="scripts/scoring.js"></script>
+  <script src="scripts/ui.js"></script>
+  <script src="scripts/game.js"></script>
+</body>
+</html>
