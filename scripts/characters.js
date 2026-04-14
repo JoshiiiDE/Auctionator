@@ -16,7 +16,7 @@ const CHARACTERS = [
   {
     name: 'Naruto Uzumaki',
     image: 'assets/characters/narutouzumaki.png',
-    rankings: { speed: 88, strength: 80, intelligence: 65, combat: 90, power: 92, durability: 85 },
+    rankings: { speed: 95, strength: 92, intelligence: 72, combat: 96, power: 98, durability: 93 },
   },
   {
     name: 'Monkey D. Luffy',
@@ -86,7 +86,7 @@ const CHARACTERS = [
   {
     name: 'Sasuke Uchiha',
     image: 'assets/characters/sasukeuchiha.png',
-    rankings: { speed: 90, strength: 78, intelligence: 88, combat: 92, power: 90, durability: 78 },
+    rankings: { speed: 93, strength: 80, intelligence: 93, combat: 96, power: 96, durability: 82 },
   },
   {
     name: 'Roronoa Zoro',
@@ -159,11 +159,6 @@ const CHARACTERS = [
     rankings: { speed: 90, strength: 92, intelligence: 72, combat: 95, power: 95, durability: 90 },
   },
   {
-    name: 'Simon',
-    image: 'assets/characters/simon.png',
-    rankings: { speed: 70, strength: 85, intelligence: 65, combat: 78, power: 100, durability: 88 },
-  },
-  {
     name: 'Vash the Stampede',
     image: 'assets/characters/vashthestampede.png',
     rankings: { speed: 92, strength: 65, intelligence: 80, combat: 88, power: 80, durability: 72 },
@@ -211,7 +206,7 @@ const CHARACTERS = [
   {
     name: 'Itachi Uchiha',
     image: 'assets/characters/itachiuchiha.png',
-    rankings: { speed: 92, strength: 72, intelligence: 95, combat: 93, power: 90, durability: 72 },
+    rankings: { speed: 93, strength: 70, intelligence: 99, combat: 97, power: 93, durability: 72 },
   },
   {
     name: 'Gohan',
@@ -394,11 +389,6 @@ const CHARACTERS = [
     rankings: { speed: 40, strength: 38, intelligence: 96, combat: 25, power: 30, durability: 42 },
   },
   {
-    name: 'Sora',
-    image: 'assets/characters/sora.png',
-    rankings: { speed: 45, strength: 30, intelligence: 98, combat: 30, power: 60, durability: 38 },
-  },
-  {
     name: 'Shiroe',
     image: 'assets/characters/shiroe.png',
     rankings: { speed: 50, strength: 35, intelligence: 96, combat: 55, power: 75, durability: 45 },
@@ -558,47 +548,47 @@ const CHARACTERS = [
   {
     name: 'Kakashi Hatake',
     image: 'assets/characters/kakashihatake.png',
-    rankings: { speed: 90, strength: 72, intelligence: 95, combat: 95, power: 88, durability: 75 },
+    rankings: { speed: 92, strength: 73, intelligence: 97, combat: 97, power: 90, durability: 78 },
   },
   {
     name: 'Minato Namikaze',
     image: 'assets/characters/minatonamikaze.png',
-    rankings: { speed: 99, strength: 72, intelligence: 92, combat: 95, power: 90, durability: 72 },
+    rankings: { speed: 99, strength: 74, intelligence: 93, combat: 96, power: 92, durability: 74 },
   },
   {
     name: 'Jiraiya',
     image: 'assets/characters/jiraiya.png',
-    rankings: { speed: 80, strength: 78, intelligence: 88, combat: 90, power: 92, durability: 80 },
+    rankings: { speed: 80, strength: 83, intelligence: 90, combat: 93, power: 94, durability: 82 },
   },
   {
     name: 'Orochimaru',
     image: 'assets/characters/orochimaru.png',
-    rankings: { speed: 85, strength: 72, intelligence: 95, combat: 88, power: 90, durability: 80 },
+    rankings: { speed: 82, strength: 72, intelligence: 98, combat: 88, power: 92, durability: 88 },
   },
   {
     name: 'Pain',
     image: 'assets/characters/pain.png',
-    rankings: { speed: 85, strength: 80, intelligence: 92, combat: 90, power: 95, durability: 82 },
+    rankings: { speed: 82, strength: 85, intelligence: 93, combat: 93, power: 98, durability: 85 },
   },
   {
     name: 'Gaara',
     image: 'assets/characters/gaara.png',
-    rankings: { speed: 72, strength: 75, intelligence: 80, combat: 82, power: 90, durability: 90 },
+    rankings: { speed: 75, strength: 78, intelligence: 84, combat: 86, power: 93, durability: 93 },
   },
   {
     name: 'Rock Lee',
     image: 'assets/characters/rocklee.png',
-    rankings: { speed: 95, strength: 85, intelligence: 55, combat: 95, power: 60, durability: 80 },
+    rankings: { speed: 97, strength: 93, intelligence: 55, combat: 96, power: 62, durability: 82 },
   },
   {
     name: 'Hinata Hyuga',
     image: 'assets/characters/hinatahyuga.png',
-    rankings: { speed: 78, strength: 65, intelligence: 72, combat: 80, power: 75, durability: 70 },
+    rankings: { speed: 82, strength: 70, intelligence: 76, combat: 83, power: 82, durability: 73 },
   },
   {
     name: 'Sakura Haruno',
     image: 'assets/characters/sakuraharuno.png',
-    rankings: { speed: 72, strength: 88, intelligence: 82, combat: 85, power: 78, durability: 80 },
+    rankings: { speed: 75, strength: 95, intelligence: 87, combat: 87, power: 83, durability: 85 },
   },
   {
     name: 'Shikamaru Nara',
@@ -608,12 +598,12 @@ const CHARACTERS = [
   {
     name: 'Neji Hyuga',
     image: 'assets/characters/nejihyuga.png',
-    rankings: { speed: 85, strength: 70, intelligence: 82, combat: 90, power: 78, durability: 72 },
+    rankings: { speed: 88, strength: 72, intelligence: 85, combat: 92, power: 80, durability: 74 },
   },
   {
     name: 'Tsunade',
     image: 'assets/characters/tsunade.png',
-    rankings: { speed: 75, strength: 95, intelligence: 90, combat: 88, power: 85, durability: 88 },
+    rankings: { speed: 75, strength: 97, intelligence: 92, combat: 90, power: 88, durability: 95 },
   },
   // ── One Piece ──
   {
@@ -1557,6 +1547,152 @@ const CHARACTERS = [
     name: 'Ai Hoshino',
     image: 'assets/characters/aihoshino.png',
     rankings: { speed: 55, strength: 38, intelligence: 78, combat: 30, power: 42, durability: 48 },
+  },
+  // ── Baki ──
+  {
+    name: 'Yujiro Hanma',
+    image: 'assets/characters/yujirohanma.png',
+    rankings: { speed: 97, strength: 100, intelligence: 85, combat: 100, power: 95, durability: 99 },
+  },
+  {
+    name: 'Baki Hanma',
+    image: 'assets/characters/bakihanma.png',
+    rankings: { speed: 95, strength: 88, intelligence: 80, combat: 97, power: 85, durability: 90 },
+  },
+  {
+    name: 'Musashi Miyamoto',
+    image: 'assets/characters/musashimiyamoto.png',
+    rankings: { speed: 96, strength: 78, intelligence: 88, combat: 99, power: 75, durability: 78 },
+  },
+  {
+    name: 'Pickle',
+    image: 'assets/characters/pickle.png',
+    rankings: { speed: 85, strength: 99, intelligence: 10, combat: 88, power: 82, durability: 98 },
+  },
+  {
+    name: 'Jack Hanma',
+    image: 'assets/characters/jackhanma.png',
+    rankings: { speed: 78, strength: 95, intelligence: 60, combat: 88, power: 80, durability: 92 },
+  },
+  {
+    name: 'Biscuit Oliva',
+    image: 'assets/characters/oliva.png',
+    rankings: { speed: 65, strength: 97, intelligence: 72, combat: 85, power: 85, durability: 95 },
+  },
+  {
+    name: 'Doppo Orochi',
+    image: 'assets/characters/doppoorochi.png',
+    rankings: { speed: 85, strength: 80, intelligence: 78, combat: 95, power: 72, durability: 80 },
+  },
+  {
+    name: 'Retsu Kaioh',
+    image: 'assets/characters/retsukaioh.png',
+    rankings: { speed: 88, strength: 78, intelligence: 82, combat: 95, power: 75, durability: 80 },
+  },
+  // ── Monster ──
+  {
+    name: 'Johan Liebert',
+    image: 'assets/characters/johanliebert.png',
+    rankings: { speed: 55, strength: 55, intelligence: 100, combat: 60, power: 78, durability: 55 },
+  },
+  {
+    name: 'Kenzou Tenma',
+    image: 'assets/characters/kenzoutenma.png',
+    rankings: { speed: 50, strength: 45, intelligence: 90, combat: 45, power: 35, durability: 55 },
+  },
+  {
+    name: 'Nina Fortner',
+    image: 'assets/characters/ninafortner.png',
+    rankings: { speed: 58, strength: 48, intelligence: 82, combat: 50, power: 40, durability: 52 },
+  },
+  // ── Dr. Stone ──
+  {
+    name: 'Senku Ishigami',
+    image: 'assets/characters/senkuishigami.png',
+    rankings: { speed: 45, strength: 35, intelligence: 100, combat: 30, power: 55, durability: 42 },
+  },
+  {
+    name: 'Tsukasa Shishio',
+    image: 'assets/characters/tsukasashishio.png',
+    rankings: { speed: 88, strength: 93, intelligence: 75, combat: 92, power: 72, durability: 88 },
+  },
+  {
+    name: 'Chrome',
+    image: 'assets/characters/chrome.png',
+    rankings: { speed: 55, strength: 50, intelligence: 82, combat: 55, power: 45, durability: 58 },
+  },
+  // ── Cyberpunk Edgerunners ──
+  {
+    name: 'David Martinez',
+    image: 'assets/characters/davidmartinez.png',
+    rankings: { speed: 97, strength: 90, intelligence: 72, combat: 90, power: 85, durability: 88 },
+  },
+  {
+    name: 'Adam Smasher',
+    image: 'assets/characters/adamsmasher.png',
+    rankings: { speed: 85, strength: 97, intelligence: 72, combat: 92, power: 90, durability: 99 },
+  },
+  {
+    name: 'Lucy',
+    image: 'assets/characters/lucy_edgerunners.png',
+    rankings: { speed: 72, strength: 55, intelligence: 95, combat: 68, power: 85, durability: 58 },
+  },
+  {
+    name: 'Maine',
+    image: 'assets/characters/maine.png',
+    rankings: { speed: 65, strength: 92, intelligence: 62, combat: 85, power: 80, durability: 92 },
+  },
+  // ── Fire Force ──
+  {
+    name: 'Shinra Kusakabe',
+    image: 'assets/characters/shinrakusakabe.png',
+    rankings: { speed: 96, strength: 80, intelligence: 68, combat: 90, power: 92, durability: 82 },
+  },
+  {
+    name: 'Sho Kusakabe',
+    image: 'assets/characters/shokusakabe.png',
+    rankings: { speed: 99, strength: 72, intelligence: 75, combat: 88, power: 95, durability: 72 },
+  },
+  {
+    name: 'Benimaru Shinmon',
+    image: 'assets/characters/benimarushinmon.png',
+    rankings: { speed: 92, strength: 85, intelligence: 78, combat: 95, power: 93, durability: 85 },
+  },
+  {
+    name: 'Joker',
+    image: 'assets/characters/joker_fireforce.png',
+    rankings: { speed: 90, strength: 75, intelligence: 88, combat: 90, power: 85, durability: 78 },
+  },
+  {
+    name: 'Leonard Burns',
+    image: 'assets/characters/leonardburns.png',
+    rankings: { speed: 78, strength: 85, intelligence: 80, combat: 90, power: 88, durability: 90 },
+  },
+  // ── Solo Leveling ──
+  {
+    name: 'Sung Jinwoo',
+    image: 'assets/characters/sungjinwoo.png',
+    rankings: { speed: 97, strength: 96, intelligence: 85, combat: 98, power: 99, durability: 95 },
+  },
+  {
+    name: 'Cha Hae-In',
+    image: 'assets/characters/chahaein.png',
+    rankings: { speed: 90, strength: 85, intelligence: 80, combat: 92, power: 85, durability: 80 },
+  },
+  {
+    name: 'Thomas Andre',
+    image: 'assets/characters/thomasandre.png',
+    rankings: { speed: 78, strength: 99, intelligence: 65, combat: 90, power: 92, durability: 99 },
+  },
+  {
+    name: 'Goto Ryuji',
+    image: 'assets/characters/gotoryuji.png',
+    rankings: { speed: 88, strength: 88, intelligence: 80, combat: 92, power: 88, durability: 85 },
+  },
+  {
+    name: 'Sung Ilhwan',
+    image: 'assets/characters/sungilhwan.png',
+    rankings: { speed: 88, strength: 90, intelligence: 78, combat: 92, power: 90, durability: 88 },
   },
 ];
 

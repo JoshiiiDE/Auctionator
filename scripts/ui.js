@@ -92,7 +92,6 @@ function renderBidInput() {
 
   if (auction.selectedBidder) {
     biddingAs.textContent = `Bidding as: ${auction.selectedBidder.name}`;
-    input.min             = auction.currentBid + 1;
     input.disabled        = false;
     placeBtn.disabled     = false;
   } else {

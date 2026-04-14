@@ -26,6 +26,16 @@
       <button id="btn-add-player">Add Player</button>
     </div>
 
+    <div id="round-selector">
+      <span class="round-selector-label">Rounds</span>
+      <div class="round-selector-controls">
+        <button id="btn-rounds-minus">−</button>
+        <span id="rounds-display">6</span>
+        <button id="btn-rounds-plus">+</button>
+      </div>
+      <span id="starting-money-label">Starting budget: $600,000,000</span>
+    </div>
+
     <p id="lobby-status">Need at least 4 players to start (4 more needed)</p>
     <button id="btn-start-game" disabled>Start Game</button>
     <button id="btn-open-overview">Character Overview</button>
@@ -95,7 +105,7 @@
     <div id="bid-input-area">
       <span id="bidding-as">Select a player above to bid</span>
       <div id="bid-input-row">
-        <input type="number" id="bid-input" placeholder="Enter bid amount" min="1" disabled />
+        <input type="text" id="bid-input" placeholder="Enter bid amount" disabled inputmode="numeric" />
         <button id="btn-place-bid" disabled>Place Bid</button>
       </div>
       <button id="btn-end-auction">No Sale</button>

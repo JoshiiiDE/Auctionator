@@ -2,8 +2,11 @@
 
 // ===================== CONSTANTS =====================
 
-const MIN_PLAYERS = 2;
-let nextPlayerId  = 1;
+const MIN_PLAYERS       = 2;
+const MIN_ROUNDS        = 1;
+const MAX_ROUNDS        = 10;
+const MONEY_PER_ROUND   = 100_000_000;
+let nextPlayerId        = 1;
 
 // ===================== STATE =====================
 
@@ -88,7 +91,6 @@ function renderPlayerList() {
     entry.innerHTML = `
       <span class="player-entry-number">${index + 1}.</span>
       <span class="player-entry-name">${player.name}</span>
-      <span class="player-entry-money">$${player.money.toLocaleString()}</span>
       <button class="btn-remove-player" data-id="${player.id}">Remove</button>
     `;
     list.appendChild(entry);
@@ -110,11 +112,21 @@ function renderPlayerList() {
       : 'Ready to start!';
 }
 
+function updateRoundSelector() {
+  document.getElementById('rounds-display').textContent = TOTAL_ROUNDS;
+  document.getElementById('btn-rounds-minus').disabled  = TOTAL_ROUNDS <= MIN_ROUNDS;
+  document.getElementById('btn-rounds-plus').disabled   = TOTAL_ROUNDS >= MAX_ROUNDS;
+  const budget = (TOTAL_ROUNDS * MONEY_PER_ROUND).toLocaleString('de-DE');
+  document.getElementById('starting-money-label').textContent = `Starting budget: $${budget}`;
+}
+
 function startGame() {
   if (state.players.length < MIN_PLAYERS) {
     alert(`At least ${MIN_PLAYERS} players are required to start.`);
     return;
   }
+  const startingMoney = TOTAL_ROUNDS * MONEY_PER_ROUND;
+  state.players.forEach(p => { p.money = startingMoney; });
   state.round = 1;
   state.currentCategory   = pickCategory(null);
   state.currentCharacters = pickRoundCharacters(state.players.length);
@@ -231,8 +243,9 @@ function renderEndgame() {
  * Reset all player stats and restart with the same roster.
  */
 function playAgain() {
+  const startingMoney = TOTAL_ROUNDS * MONEY_PER_ROUND;
   state.players.forEach(player => {
-    player.money      = 1_000_000_000;
+    player.money      = startingMoney;
     player.characters = [];
     player.score      = 0;
   });
@@ -263,7 +276,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-open-overview').addEventListener('click', openOverview);
   document.getElementById('btn-close-overview').addEventListener('click', () => showScreen('lobby-screen'));
 
-  // Lobby
+  // Lobby — round selector
+  updateRoundSelector();
+  document.getElementById('btn-rounds-minus').addEventListener('click', () => {
+    if (TOTAL_ROUNDS > MIN_ROUNDS) { TOTAL_ROUNDS--; updateRoundSelector(); }
+  });
+  document.getElementById('btn-rounds-plus').addEventListener('click', () => {
+    if (TOTAL_ROUNDS < MAX_ROUNDS) { TOTAL_ROUNDS++; updateRoundSelector(); }
+  });
+
+  // Lobby — players
   document.getElementById('btn-add-player').addEventListener('click', addPlayer);
   document.getElementById('btn-start-game').addEventListener('click', startGame);
   document.getElementById('player-name-input').addEventListener('keydown', e => {
@@ -285,6 +307,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btn) selectBidder(Number(btn.dataset.playerId));
   });
   document.getElementById('btn-place-bid').addEventListener('click', placeBid);
+
+  const bidInput = document.getElementById('bid-input');
+  bidInput.addEventListener('input', () => {
+    const digits = bidInput.value.replace(/\D/g, '');
+    bidInput.value = digits ? Number(digits).toLocaleString('de-DE') : '';
+  });
+  bidInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') placeBid();
+  });
+
   document.getElementById('btn-end-auction').addEventListener('click', endAuction);
 
   // Reveal screen

@@ -64,7 +64,7 @@ function selectBidder(playerId) {
  */
 function placeBid() {
   const input  = document.getElementById('bid-input');
-  const amount = parseInt(input.value, 10);
+  const amount = parseInt(input.value.replace(/\./g, ''), 10);
   const player = auction.selectedBidder;
 
   if (!player) return;

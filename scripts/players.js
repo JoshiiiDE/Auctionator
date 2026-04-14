@@ -6,7 +6,7 @@ class Player {
   constructor(id, name) {
     this.id         = id;
     this.name       = name;
-    this.money      = 1_000_000_000;
+    this.money      = 0; // set at game start based on round count
     this.characters = [];
     this.score      = 0;
   }

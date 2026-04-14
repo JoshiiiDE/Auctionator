@@ -2,7 +2,7 @@
 
 // ===================== ROUND CONFIG =====================
 
-const TOTAL_ROUNDS = 10;
+let TOTAL_ROUNDS = 6;
 
 const CATEGORIES = [
   'Speed',

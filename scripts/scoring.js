@@ -26,12 +26,20 @@ function calculateRoundScores() {
   // Highest stat wins
   entries.sort((a, b) => b.stat - a.stat);
 
-  entries.forEach((entry, i) => {
-    const points    = playerCount - i;
-    entry.rank      = i + 1;
-    entry.points    = points;
-    entry.player.score += points;
-  });
+  // Assign same rank and points to tied entries; next group skips past the tied positions
+  let i = 0;
+  while (i < entries.length) {
+    const rank   = i + 1;
+    const points = playerCount - i;
+    let j = i;
+    while (j < entries.length && entries[j].stat === entries[i].stat) {
+      entries[j].rank    = rank;
+      entries[j].points  = points;
+      entries[j].player.score += points;
+      j++;
+    }
+    i = j;
+  }
 
   return entries;
 }
